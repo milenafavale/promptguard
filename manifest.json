@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "PromptGuard",
+  "version": "1.0.0",
+  "description": "Detects and masks PII in user inputs using AI",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://*/*",
+    "http://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_end",
+      "all_frames": true
+    }
+  ]
+}
